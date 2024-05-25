@@ -24,14 +24,14 @@ export default function Home() {
   
 
     useEffect(() => {
-        if(width > 765){
+        
             const lenis = new Lenis();
             function raf(time) {
                 lenis.raf(time)
                 requestAnimationFrame(raf)
             }
             requestAnimationFrame(raf)
-        }
+        
        
     }, []);
     useEffect(() => {

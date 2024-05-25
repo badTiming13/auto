@@ -33,8 +33,8 @@ export default function HeroSlider() {
                         src={`/images/hero/${active}.jpg`}
                         fill
                         className='object-cover z-0 filter brightness-50 md:rounded-2xl'
-                     
                         alt="image"
+                        priority={true}
                     />
                 </motion.div>
             </AnimatePresence>

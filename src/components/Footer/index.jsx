@@ -1,4 +1,5 @@
 "use client"
+import useDeviceSize from "@/utils/useDeviceSize";
 import { useScroll, useTransform, motion } from "framer-motion";
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
@@ -6,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 function Footer() {
     const { t } = useTranslation();
+   
     const container = useRef();
     const texts = useRef([]);
     const { scrollYProgress } = useScroll({
@@ -46,10 +48,11 @@ function Footer() {
 const MemoizedFooter = React.memo(Footer);
 
 function Logos({ scrollProgress }) {
+    const [width, height] = useDeviceSize();
     const y = useTransform(scrollProgress, [0, 1], [-700, 0]);
     return (
         <div className="h-[250px] overflow-hidden bg-[#4E4E5A] relative">
-            <motion.div style={{ y }} className="h-full flex items-center justify-center gap-5">
+            <motion.div style={width > 400 ? { y } : {}} className="h-full flex items-center justify-center gap-5">
                 <Link href={'/'}>
                     <h1 className="text-4xl md:text-8xl text-white font-serif">Let&apos;s talk</h1>
                 </Link>

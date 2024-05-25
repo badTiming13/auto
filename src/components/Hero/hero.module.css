@@ -49,3 +49,14 @@
  
   }
 }
+@media screen and (width < 400px) {
+ 
+  .sliderContainer {
+    top: calc(40vh - 300px);
+  }
+  .main {
+
+    height: 15vh;
+ 
+  }
+}
