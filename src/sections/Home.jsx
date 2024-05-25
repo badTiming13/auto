@@ -19,10 +19,8 @@ export default function Home() {
     const { t } = useTranslation();
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
-    if (typeof window !== 'undefined') {
-        const [width, setWidth] = useState(window.innerWidth);
-        const [height, setHeight] = useState(window.innerHeight);
-    }
+    const [width, setWidth] = useState(() => window.innerWidth);
+    const [height, setHeight] = useState(() => window.innerHeight);
     const updateDimensions = () => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
