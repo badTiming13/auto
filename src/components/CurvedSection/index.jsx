@@ -11,8 +11,10 @@ export default function CurvedSection() {
 
     // Wrap setPath in useCallback to memoize the function
     const setPath = useCallback((progress) => {
-        const width = window.innerWidth * 0.6;
-        path.current.setAttributeNS(null, "d", `M0 250 Q${width * x} ${250 + progress}, ${width} 250`);
+        if (typeof window !== 'undefined') {
+            const width = window.innerWidth * 0.6;
+            path.current.setAttributeNS(null, "d", `M0 250 Q${width * x} ${250 + progress}, ${width} 250`);
+        }
     }, [x]);
 
     useEffect(() => {

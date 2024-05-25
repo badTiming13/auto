@@ -14,7 +14,7 @@ export default function Hero() {
     let direction = -1;
 
     useEffect(() => {
-        
+        if (typeof window !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
         gsap.to(slider.current, {
             scrollTrigger: {
@@ -27,6 +27,7 @@ export default function Hero() {
             x: "-500px",
         })
         requestAnimationFrame(animate);
+    }
     }, [])
 
     const animate = () => {

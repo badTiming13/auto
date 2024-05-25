@@ -14,15 +14,18 @@ export default function Header() {
 
     useEffect(() => {
         function handleResize() {
-            const screenWidth = window.innerWidth;
-            if (screenWidth < 768) { // Adjust this value according to your design
-                setMenuSize({ width: 300, height: 500 }); // Set your desired width and height for smaller screens
-            } else {
-                setMenuSize({ width: 480, height: 650 }); // Default width and height for larger screens
+            if (typeof window !== 'undefined') {
+                const screenWidth = window.innerWidth;
+                if (screenWidth < 768) { // Adjust this value according to your design
+                    setMenuSize({ width: 300, height: 500 }); // Set your desired width and height for smaller screens
+                } else {
+                    setMenuSize({ width: 480, height: 650 }); // Default width and height for larger screens
+                }
             }
         }
-
-        window.addEventListener('resize', handleResize);
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', handleResize);
+        }
         handleResize(); // Initial call to set menu size based on screen size
 
         return () => {

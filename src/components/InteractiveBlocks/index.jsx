@@ -4,7 +4,8 @@ import styles from './main.module.css'; // Import CSS module for styling
 
 export default function InteractiveBlocks() {
     useEffect(() => {
-        const blockSize = 80; // Adjust the size of each block as needed
+        if (typeof window !== 'undefined') {
+            const blockSize = 80; // Adjust the size of each block as needed
         const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight /1.5;
         const numCols = Math.ceil(screenWidth / blockSize);
@@ -75,6 +76,7 @@ export default function InteractiveBlocks() {
                 block.remove();
             });
         };
+        }
     }, []);
 
     return (
