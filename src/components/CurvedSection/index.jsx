@@ -1,8 +1,10 @@
 "use client";
+import useDeviceSize from '@/utils/useDeviceSize';
 import styles from './main.module.css';
 import { useEffect, useRef, useCallback } from "react";
 
 export default function CurvedSection() {
+    const [width, height] = useDeviceSize();
     const path = useRef(null);
     let progress = 0;
     let x = 0.5;
@@ -11,10 +13,10 @@ export default function CurvedSection() {
 
     // Wrap setPath in useCallback to memoize the function
     const setPath = useCallback((progress) => {
-        if (typeof window !== 'undefined') {
-            const width = window.innerWidth * 0.6;
-            path.current.setAttributeNS(null, "d", `M0 250 Q${width * x} ${250 + progress}, ${width} 250`);
-        }
+
+        const myWidth = width * 0.6;
+        path.current.setAttributeNS(null, "d", `M0 250 Q${myWidth * x} ${250 + progress}, ${myWidth} 250`);
+
     }, [x]);
 
     useEffect(() => {

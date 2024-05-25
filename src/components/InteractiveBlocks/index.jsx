@@ -1,11 +1,12 @@
 "use client";
 import { useEffect } from 'react';
 import styles from './main.module.css'; // Import CSS module for styling
+import useDeviceSize from '@/utils/useDeviceSize';
 
 export default function InteractiveBlocks() {
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const blockSize = 80; // Adjust the size of each block as needed
+      
+        const blockSize = 80; // Adjust the size of each block as needed
         const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight /1.5;
         const numCols = Math.ceil(screenWidth / blockSize);
@@ -76,7 +77,7 @@ export default function InteractiveBlocks() {
                 block.remove();
             });
         };
-        }
+
     }, []);
 
     return (
@@ -84,8 +85,8 @@ export default function InteractiveBlocks() {
             <div id="blocks" className={styles.myblocks}></div>
             <div className={styles.content}>
                 <h1 className='text-center text-7xl font-black uppercase text-white sm:text-8xl md:text-9xl'>Our services</h1>
-                <p class="mb-6 mt-4 max-w-3xl text-center text-lg font-light text-neutral-500 md:text-xl">we offer a wide range of cutting-edge services tailored to meet your every need. Join us on this journey of transformation and discover what sets us apart!</p>
-                <button class="pointer-events-auto bg-indigo-400 px-4 py-2 text-xl font-bold uppercase text-neutral-950 mix-blend-difference">Contact us</button>
+                <p className="mb-6 mt-4 max-w-3xl text-center text-lg font-light text-neutral-500 md:text-xl">we offer a wide range of cutting-edge services tailored to meet your every need. Join us on this journey of transformation and discover what sets us apart!</p>
+                <button className="pointer-events-auto bg-indigo-400 px-4 py-2 text-xl font-bold uppercase text-neutral-950 mix-blend-difference">Contact us</button>
             </div>
         </div>
     );

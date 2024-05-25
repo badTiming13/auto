@@ -10,25 +10,18 @@ import Footer from '@/components/Footer';
 import { motion, useInView } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import HorizontalScroll from './HorizontalScroll';
+import useDeviceSize from '@/utils/useDeviceSize';
 
 
 const paragraph = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
 
 
 export default function Home() {
+    const [width, height] = useDeviceSize();
     const { t } = useTranslation();
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
-    const [width, setWidth] = useState(() => window.innerWidth);
-    const [height, setHeight] = useState(() => window.innerHeight);
-    const updateDimensions = () => {
-        setWidth(window.innerWidth);
-        setHeight(window.innerHeight);
-    }
-    useEffect(() => {
-        window.addEventListener("resize", updateDimensions);
-        return () => window.removeEventListener("resize", updateDimensions);
-    }, []);
+  
 
     useEffect(() => {
         const lenis = new Lenis();

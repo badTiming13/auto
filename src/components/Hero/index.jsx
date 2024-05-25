@@ -4,9 +4,10 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import useDeviceSize from '@/utils/useDeviceSize';
 
 export default function Hero() {
-
+    const [width, height] = useDeviceSize();
     const firstText = useRef(null);
     const secondText = useRef(null);
     const slider = useRef(null);
@@ -14,20 +15,20 @@ export default function Hero() {
     let direction = -1;
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
+        
         gsap.registerPlugin(ScrollTrigger);
         gsap.to(slider.current, {
             scrollTrigger: {
                 trigger: document.documentElement,
                 scrub: 0.25,
                 start: 0,
-                end: window.innerHeight,
+                end: height,
                 onUpdate: e => direction = e.direction * -1  // eslint-disable-line react-hooks/exhaustive-deps
             },
             x: "-500px",
         })
         requestAnimationFrame(animate);
-    }
+    
     }, [])
 
     const animate = () => {
