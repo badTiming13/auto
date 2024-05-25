@@ -1,0 +1,36 @@
+.paragraph{
+    font-family: 'Serif';
+    font-size: 50px;
+    max-width: 1280px;
+    padding: 40px;
+    color: white;   
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 1;
+}
+.word{
+    font-family: 'Serif';
+    margin-right: 12px;
+    margin-top: 12px;
+    position: relative;
+}
+.shadow{
+    position: absolute;
+    opacity: 0.1;
+}
+@media screen and (width < 896px) {
+    .paragraph{
+        font-size: 36px;
+    }
+}
+@media screen and (width < 697px) {
+    .paragraph{
+        font-size: 26px;
+    }
+}
+@media screen and (width < 475px) {
+    .paragraph{
+        font-size: 24px;
+    }
+   
+}

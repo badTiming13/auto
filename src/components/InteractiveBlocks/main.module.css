@@ -1,0 +1,47 @@
+.blocksContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+.myblocks {
+    background-color: rgba(129, 140, 248, 0);
+    width: 100%; /* Adjusted */
+    display: flex;
+    justify-content: center; /* Adjusted */
+    align-items: center; /* Added */
+    flex-wrap: wrap; /* Added */
+    overflow: hidden;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.041);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Ensure blocks are behind content */
+    transition: all .5s ease;
+}
+.content {
+    position: relative; /* Ensure content is positioned relative to its container */
+    z-index: 1; /* Ensure content is above blocks */
+    /* Add your desired styles for the content */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    pointer-events: none;
+}
+
+.block {
+    width: 80px;
+    height: 80px;
+    border: 0.5px solid rgba(255, 255, 255, 0.041);
+    transition: background-color 0.5s ease;
+}
+
+.highlight {
+    background-color: rgba(129, 140, 248, 1);
+    transition: all .5s ease;
+}
