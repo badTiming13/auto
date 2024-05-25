@@ -22,7 +22,7 @@ function Footer() {
                 }
             })
         })
-    }, []);
+    }, [scrollYProgress]);
 
     return (
         <div ref={container}>
@@ -51,7 +51,7 @@ function Logos({ scrollProgress }) {
         <div className="h-[250px] overflow-hidden bg-[#4E4E5A] relative">
             <motion.div style={{ y }} className="h-full flex items-center justify-center gap-5">
                 <Link href={'/'}>
-                    <h1 className="text-4xl md:text-8xl text-white font-serif">Let's talk</h1>
+                    <h1 className="text-4xl md:text-8xl text-white font-serif">Let&apos;s talk</h1>
                 </Link>
             </motion.div>
             <p className="font-sans md:text-lg text-white absolute bottom-[3%] right-[3%]">©copyright</p>

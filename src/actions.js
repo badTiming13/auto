@@ -10,7 +10,7 @@ export const sendEmail = async (formData) => {
             from: 'Automate Me <customer-request@automate-me.at>',
             to: ['el.touch.shop@gmail.com'],
             subject: "Form Submission",
-            html:
+            react: EmailTemplate({ firstName: 'John' }),
         })
         return {
             error: null,

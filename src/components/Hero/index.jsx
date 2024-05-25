@@ -14,6 +14,7 @@ export default function Hero() {
     let direction = -1;
 
     useEffect(() => {
+        
         gsap.registerPlugin(ScrollTrigger);
         gsap.to(slider.current, {
             scrollTrigger: {
@@ -21,7 +22,7 @@ export default function Hero() {
                 scrub: 0.25,
                 start: 0,
                 end: window.innerHeight,
-                onUpdate: e => direction = e.direction * -1
+                onUpdate: e => direction = e.direction * -1  // eslint-disable-line react-hooks/exhaustive-deps
             },
             x: "-500px",
         })

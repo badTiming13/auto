@@ -71,7 +71,7 @@ const ShuffleText = ({ children }) => {
         element.removeEventListener("mouseenter", scrambleText);
       });
     };
-  }, []); // Ensure this effect runs only once when the component mounts
+  }, [children]); // Ensure this effect runs only once when the component mounts
 
   return (
     <p className="scramble-paragraph text-white text-4xl font-bold">

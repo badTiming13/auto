@@ -1,23 +1,23 @@
 "use client";
 import styles from './main.module.css';
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
-export default function CurvedSection(){
+export default function CurvedSection() {
     const path = useRef(null);
     let progress = 0;
     let x = 0.5;
     let time = Math.PI / 2;
     let reqId = null;
 
+    // Wrap setPath in useCallback to memoize the function
+    const setPath = useCallback((progress) => {
+        const width = window.innerWidth * 0.6;
+        path.current.setAttributeNS(null, "d", `M0 250 Q${width * x} ${250 + progress}, ${width} 250`);
+    }, [x]);
 
     useEffect(() => {
         setPath(progress);
-    }, []);
-
-    const setPath = (progress) => {
-        const width = window.innerWidth * 0.6;
-        path.current.setAttributeNS(null, "d", `M0 250 Q${width * x} ${250 + progress}, ${width} 250`);
-    }
+    }, [progress, setPath]);
 
     const lerp = (x, y, a) => x * (1 - a) + y * a
 
@@ -58,7 +58,7 @@ export default function CurvedSection(){
         progress = 0;
     }
 
-    return(
+    return (
         <div className={styles.container}>
             <div className={styles.body}>
                 <div className={styles.line}>

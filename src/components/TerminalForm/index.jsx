@@ -70,7 +70,7 @@ const TerminalForm = () => {
     useEffect(() => {
         console.log(formData);
         console.log("step: ", step);
-    }, [formData]);
+    }, [formData, step]);
 
 
 
@@ -178,7 +178,7 @@ const TerminalForm = () => {
                             className="absolute left-[50%] -translate-x-[50%] text-sm font-semibold text-slate-200">office@automate-me.at</span>
                     </div>
                     <div className="p-2 text-lg text-slate-100">
-                        <p>Hey there! We're excited to link 🔗</p>
+                        <p>Hey there! We`&apos;re excited to link 🔗</p>
                         <p className="overflow-hidden whitespace-nowrap font-light">
                             ------------------------------------------------------------------------</p>
                         {step != 69 && <p>To start, could you give us <span className="text-violet-300">your email?</span></p>}
