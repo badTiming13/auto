@@ -33,7 +33,7 @@ export default function ServiceSection() {
         <div className="py-32 px-12 flex flex-col">
             <div className="flex items-center justify-around">
                 <div>
-                    <h1 className=" text-[1.75rem] font-semibold text-white lg:text-[3.5rem]">Our web development solutions</h1>
+                    <h1 className=" text-[1.75rem] font-semibold text-white lg:text-[3.5rem] max-w-2xl">Our web development solutions</h1>
                 </div>
                 <div>
                     <ServiceTabs tabs={testTabs} />

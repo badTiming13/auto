@@ -57,7 +57,9 @@ function Logos({ scrollProgress }) {
                     <h1 className="text-4xl md:text-8xl text-white font-serif">Let&apos;s talk</h1>
                 </Link>
             </motion.div>
-            <p className="font-sans md:text-lg text-white absolute bottom-[3%] right-[3%]">©copyright</p>
+            {/*
+                <p className="font-sans md:text-lg text-white absolute bottom-[3%] left-[1%]">Automate Me © 2024 - All rights reserved. </p>
+            */}
         </div>
     )
 }

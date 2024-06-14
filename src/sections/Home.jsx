@@ -11,7 +11,8 @@ import { motion, useInView } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import HorizontalScroll from './HorizontalScroll';
 import useDeviceSize from '@/utils/useDeviceSize';
-
+import SliderCard from '@/components/SliderCard';
+import { useDraggable } from 'react-use-draggable-scroll';
 
 const paragraph = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
 
@@ -21,6 +22,8 @@ export default function Home() {
     const { t } = useTranslation();
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
+    const dragRef = useRef();
+    const {events} = useDraggable(dragRef);
   
 
     useEffect(() => {
@@ -59,8 +62,7 @@ export default function Home() {
                             transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                         }} className='flex flex-col gap-8 pl-4 pr-2 md:pl-[20%] md:pr-[10%] w-full text-white/90 font-sans pt-16'>
                             <h1 className='text-[#c9fd74]'>FYI</h1>
-                            <p className='text-lg md:text-2xl font-extralight'>We offer full-cycle development services meaning a software development methodology where a development team owns the full software development lifecycle,
-                                including requirements, development, testing, deployment, and operations</p>
+                            <p className='text-lg md:text-2xl font-extralight'>We offer comprehensive development services, encompassing the entire software development lifecycle, from requirements gathering and development to testing, deployment, and operations.</p>
                             <p className='text-lg md:text-2xl font-extralight'>We create, support, and automate custom solutions tailored to your needs. <br />
                                 Forget WordPress or any other CMS. <br />
                                 We build unique admin panels to manage content with custom functionality for each client.
@@ -70,8 +72,19 @@ export default function Home() {
                         </div>
                     </div>
 
+                    
+                    <div 
+                    className='flex overflow-x-scroll scrollbar-hide gap-4 pt-16'
+                    {...events}
+                    ref={dragRef}>
+                        <SliderCard num={1} title={"Web App Development"} />
+                        <SliderCard num={2} title={"E-Commerce Solutions"}/>
+                        <SliderCard num={3} title={"AI Tools for Businesses"}/>
+                        <SliderCard num={4} title={"Workflow Automation"}/>
+                        <SliderCard num={5} title={"Internal Tools"}/>
+                        <SliderCard num={6} title={"Mobile Apps"}/>
+                    </div>
                     <div className='md:h-[60vh]'></div>
-
                     {width > 765 &&
                         <HorizontalScroll />
                     }
